@@ -5,14 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     
-    <title>BLOG</title>
+    <title>DevLog</title>
     <th:block th:include="common/include-link"></th:block>
     <th:block th:include="common/include-script"></th:block>
 </head>
 <body>
-    <div class="wrapper">
+    <div class="wrapper" style="font-family: 'Noto Sans KR', sans-serif;">
         <nav th:replace="common/navbar"></nav>
-        
+        <div class="container">
+            <th:block th:include="common/location"></th:block>
+            <th:block th:include="common/title"></th:block>
+            <th:block th:include="common/tab"></th:block>
+        </div>
     </div>
 </body>
 </html>
