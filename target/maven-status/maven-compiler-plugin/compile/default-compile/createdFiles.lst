@@ -1,2 +1,6 @@
+project/service/PostService.class
+project/domain/Post.class
 project/Application.class
+project/repository/PostRepository.class
+project/repository/MemoryPostRepository.class
 project/controller/HomeController.class
