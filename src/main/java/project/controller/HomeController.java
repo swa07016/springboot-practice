@@ -3,10 +3,11 @@ package project.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.PostMapping;
+// import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import project.domain.Post;
+import project.domain.PostDto;
 
 @Controller
 public class HomeController {
@@ -21,11 +22,15 @@ public class HomeController {
         return "register.html";
     }
     
-    // @PostMapping("/register")
-    // @ResponseBody
-    // public Post postRegister(@RequestParam(value="id") Long id) {
-    //     //test
-    //     Post post = new Post(id, "3", "1", "2", "3", "4");
-    //     return post;
-    // }
+    @PostMapping("/register")
+    @ResponseBody
+    public PostDto postRegister(PostDto postDto) {
+        //test 
+        System.out.println(postDto);
+        System.out.println(postDto.getTitle());
+        System.out.println(postDto.getContent());
+        System.out.println(postDto.getTag());
+        System.out.println(postDto.getThumbnail());
+        return postDto;
+    }
 }
