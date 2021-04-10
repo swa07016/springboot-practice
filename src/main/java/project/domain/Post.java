@@ -1,28 +1,92 @@
 package project.domain;
 
 public class Post {
-    
     private Long id;
-    private String thumbnail;
     private String title;
     private String content;
+    private String tag;
+    private String thumbnail;    
     private String regdate;
     private String author;
     
-    public Post(Long id, String title, String thumbnail,  String content, String regdate, String author) {
-        this.id = id;
-        this.title = title;
-        this.content = content;
-        this.regdate = regdate;
-        this.author = author;
+    public Post(String _title, String _content, String _tag, String _thumbnail) {
+        this.title = _title;
+        this.content = _content;
+        this.tag = _tag;
+        this.thumbnail = _thumbnail;
     }
     
-    public Long getId() {
-        return id;
+    
+    public Post(Long _id, String _title, String _content, String _tag, String _thumbnail, String _regdate, String _author) {
+        this.id = _id;
+        this.title = _title;
+        this.content = _content;
+        this.tag = _tag;
+        this.thumbnail = _thumbnail;
+        this.regdate = _regdate;
+        this.author = _author;
     }
     
     public Long setId(Long _id) {
         this.id = _id;
-        return _id;
+        return id;
+    }
+    
+    public Long getId() {
+        return this.id;
+    }
+    
+    public String setTitle(String _title) {
+        this.title = _title;
+        return title;
+    }
+    
+    public String getTitle() {
+        return this.title;
+    }
+    
+    public String setContent(String _content) {
+        this.content = _content;
+        return content;
+    }
+    
+    public String getContent() {
+        return this.content;
+    }
+    
+    public String setTag(String _tag) {
+        this.tag = _tag;
+        return tag;
+    }
+    
+    public String getTag() {
+        return this.tag;
+    }
+    
+    public String setThumbnail(String _thumbnail) {
+        this.thumbnail = _thumbnail;
+        return thumbnail;
+    } 
+    
+    public String getThumbnail() {
+        return this.thumbnail;
+    }
+    
+    public String setRegdate(String _regdate) {
+        this.regdate = _regdate;
+        return this.regdate;
+    }
+    
+    public String getRegdate() {
+        return this.regdate;
+    }
+    
+    public String setAuthor(String _author) {
+        this.author = _author;
+        return this.author;
+    }
+    
+    public String getAuthor() {
+        return this.author;
     }
 }
