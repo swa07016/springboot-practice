@@ -3,11 +3,13 @@ package project.controller;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import project.domain.Post;
@@ -32,9 +34,16 @@ public class HomeController {
         return "register.html";
     }
     
-    @GetMapping("/post")
-    public String getPost(Model model) {
-        return "post.html";
+    @GetMapping("/post/{postId}")
+    public String getPost(@PathVariable(name = "postId") Long postId, Model model) {
+        Optional<Post> post = postService.getById(postId);
+        if(post.isPresent()) {
+            model.addAttribute("post", post.get());
+            return "post.html";
+        }
+        
+        // 에러페이지 html 만들기
+        return "존재하지 않는 게시물입니다..";
     }
     
     @PostMapping("/register")
