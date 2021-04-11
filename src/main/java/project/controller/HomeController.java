@@ -9,7 +9,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import project.domain.Post;
 import project.domain.PostDto;
@@ -25,7 +24,6 @@ public class HomeController {
     public String home(Model model) {
         List<Post> postList = postService.getAllPost();
         model.addAttribute("postList", postList);
-        System.out.print(postList.size());
         return "home.html";
     }
     
@@ -34,9 +32,13 @@ public class HomeController {
         return "register.html";
     }
     
+    @GetMapping("/post")
+    public String getPost(Model model) {
+        return "post.html";
+    }
+    
     @PostMapping("/register")
-    @ResponseBody
-    public Post postRegister(PostDto postDto) {
+    public String postRegister(PostDto postDto) {
         String title = postDto.getTitle();
         String content = postDto.getContent();
         String tag = postDto.getTag();
@@ -52,6 +54,6 @@ public class HomeController {
         post.setAuthor("seonghoon");
         
         postService.register(post);
-        return post;
+        return "redirect:/";
     }
 }

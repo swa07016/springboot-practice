@@ -11,16 +11,20 @@ import project.repository.PostRepository;
 @Service
 public class PostService {
     
-    @Autowired
     private PostRepository postRepository;
 
+    public PostService(PostRepository postRepository) {
+        this.postRepository = postRepository;
+        this.postRepository.generateDummyPosts();
+    }
+    
     public Long register(Post post) {
         postRepository.save(post);
         return post.getId();
     }
     
     public List<Post> getAllPost() {
-        postRepository.generateDummyPosts();
+
         List<Post> postList = postRepository.findAll();
         return postList;
     }
