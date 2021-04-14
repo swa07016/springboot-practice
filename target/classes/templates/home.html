@@ -20,14 +20,14 @@
                 <!-- <th:block th:include="common/card"></th:block> -->
                 <div class="col-lg-4" style="padding: 1rem 1rem;" th:each="post : ${postList}" >
                     <div class="card">
-                        <a th:href="@{'/post/' + ${post.id}}" style="text-decoration: none; color: black;">
+                        <a th:href="@{'/post/' + ${post.id}}">
                             <div class="card-img-top" th:style="'background-image: url('+${post.thumbnail}+'); background-size: cover; padding-top: calc(100% / 4 * 3); background-position: center; object-fit: cover;'"></div>
                         </a>
                         <div class="card-body">
-                            <a th:href="@{'/post/' + ${post.id}}">
+                            <a th:href="@{'/post/' + ${post.id}}"  style="text-decoration: none; color: black;">
                                 <h5 class="card-title" th:text="${post.title}"></h5>
                             </a>
-                            <p class="card-text" th:text="${post.content}"></p>
+                            <p class="card-text" th:text="${post.content}" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"></p>
                             <p class="card-text"><small class="text-muted" th:text="${post.regdate}"></small></p>
                         </div>
                     </div>
