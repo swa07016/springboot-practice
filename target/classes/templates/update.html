@@ -18,20 +18,24 @@
                 margin: 60px auto 17px;
                 padding-bottom: 15px;
                 border-bottom: 1px solid rgba(0,0,0,.05);">
-                <div name="title" style="
+                <textarea name="title" style="
     display: inline-block;
+    outline: none;
+    overflow: hidden;
+    border: none;
+    resize: none;
     height: 42px;
     font-size: 30px;
     color: black;
-    line-height: 40px;" th:text="${post.title}"></div>
-                <div name="regdate" style="
+    line-height: 40px;" th:text="${post.title}"></textarea>
+                <!-- <div name="regdate" style="
     display: inline-block;
     height: 42px;
     font-size: 16px;
     color: #202020;
     line-height: 40px;
     float: right;"><span th:text="${post.author}"></span><span> / </span><span th:text="${post.regdate}"></span></div>
-            </div>
+            </div> -->
             
             <div th:style="'
                 max-width: 860px;
@@ -49,7 +53,7 @@
                 margin: 26px auto 17px;
                 padding-bottom: 26px;
                 border-bottom: 1px solid rgba(0,0,0,.05);">
-                <div name="content" required style="
+                <textarea name="content" required onkeydown="resize(this)" onkeyup="resize(this)"  style="
     display: block;
     width: 100%;
     border: none;
@@ -57,19 +61,26 @@
     resize: none;
     outline: 0 none;
     line-height: 40px;
-    overflow: auto;
-    word-break: break-all;" th:text="${post.content}"></div>
+    overflow: hidden;
+    word-break: break-all;" th:text="${post.content}"></textarea>
             </div>
-            <div name="regdate" style="
-    max-width: 860px;
-    font-size: 16px;
-    color: #202020;
-    margin: 0 auto 80px;
-    display: block;
-    "><span># </span><span th:text="${post.tag}"></span> 
-                <a th:href="@{'/post/update/' + ${post.id}}"><span style="float:right;">수정</span></a>
+            <textarea style="
+        border:none;
+        resize: none;
+        outline: none;
+        overflow: hidden;
+        width: 45%;
+        height: 100%;
+        display: inline-block;" th:text="${post.tag}"></textarea>
+                <a href="/post/update/${post.id}"><span style="float:right;">완료</span></a>
             </div>
         </div>
     </div>
+    <script>
+        function resize(obj) {
+          obj.style.height = "1px";
+          obj.style.height = (12+obj.scrollHeight)+"px";
+        }
+    </script>
 </body>
 </html>

@@ -32,4 +32,10 @@ public class PostService {
         List<Post> postList = postRepository.findAll();
         return postList;
     }
+    
+    public Long update(Post post) {
+        // implements
+        
+        return post.getId();
+    }
 }

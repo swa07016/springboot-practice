@@ -34,7 +34,7 @@ public class HomeController {
         return "register.html";
     }
     
-    @PostMapping("/register")
+    @PostMapping("/post/register")
     public String postRegister(PostDto postDto) {
         String title = postDto.getTitle();
         String content = postDto.getContent();
@@ -81,4 +81,29 @@ public class HomeController {
         model.addAttribute("post", post);
         return "preview.html";
     }
+    
+    
+    //update
+    @GetMapping("/post/update/{postId}")
+    public String getUpdatePost(@PathVariable(name = "postId") Long postId, Model model) {
+        Optional<Post> post = postService.getById(postId);
+        if(post.isPresent()) {
+            model.addAttribute("post", post.get());
+            return "update.html";
+        }
+        
+        //
+        return "권한이 없습니다..";
+    }
+    
+    @PostMapping("/post/update/{postId}")
+    public String postUpdatePost(@PathVariable(name = "postId") Long postId) {
+        Optional<Post> post = postService.getById(postId);
+        if(post.isPresent()) {
+            postService.update(post.get());
+            return "redirect:/post/{postId}";
+        }
+        return "failed";
+    }
+    
 }
