@@ -35,7 +35,7 @@ public class PostService {
     
     public Long update(Post post) {
         // implements
-        
-        return post.getId();
+        Long id = postRepository.updatePost(post);
+        return id;
     }
 }

@@ -12,68 +12,78 @@
 <body>
     <div class="wrapper" style="font-family: 'Noto Sans KR', sans-serif;">
         <nav th:replace="common/navbar"></nav>
-        <div class="container">      
-            <div style="
-                max-width: 860px;
-                margin: 60px auto 17px;
-                padding-bottom: 15px;
-                border-bottom: 1px solid rgba(0,0,0,.05);">
-                <textarea name="title" style="
-    display: inline-block;
-    outline: none;
-    overflow: hidden;
-    border: none;
-    resize: none;
-    height: 42px;
-    font-size: 30px;
-    color: black;
-    line-height: 40px;" th:text="${post.title}"></textarea>
-                <!-- <div name="regdate" style="
-    display: inline-block;
-    height: 42px;
-    font-size: 16px;
-    color: #202020;
-    line-height: 40px;
-    float: right;"><span th:text="${post.author}"></span><span> / </span><span th:text="${post.regdate}"></span></div>
-            </div> -->
-            
-            <div th:style="'
-                max-width: 860px;
-                margin: 40px auto;
-                padding-left: 0 40px;
-                background-image: url('+${post.thumbnail}+');
-                border-radius: 20px;
-                height: 400px;
-                background-size: cover;
-                background-position: center;'">
-            </div>
-            
-            <div style="
-                max-width: 860px;
-                margin: 26px auto 17px;
-                padding-bottom: 26px;
-                border-bottom: 1px solid rgba(0,0,0,.05);">
-                <textarea name="content" required onkeydown="resize(this)" onkeyup="resize(this)"  style="
-    display: block;
-    width: 100%;
-    border: none;
-    font-size: 16px;
-    resize: none;
-    outline: 0 none;
-    line-height: 40px;
-    overflow: hidden;
-    word-break: break-all;" th:text="${post.content}"></textarea>
-            </div>
-            <textarea style="
-        border:none;
-        resize: none;
+        <div class="container">
+            <form action="/post/update/1" method="post">
+                <div style="
+                    max-width: 860px;
+                    margin: 60px auto 17px;
+                    padding-bottom: 15px;
+                    border-bottom: 1px solid rgba(0,0,0,.05);">
+                    <textarea name="title" required style="
+        display: inline-block;
         outline: none;
         overflow: hidden;
-        width: 45%;
-        height: 100%;
-        display: inline-block;" th:text="${post.tag}"></textarea>
-                <a href="/post/update/${post.id}"><span style="float:right;">완료</span></a>
-            </div>
+        border: none;
+        resize: none;
+        height: 42px;
+        font-size: 30px;
+        color: black;
+        line-height: 40px;" th:text="${post.title}"></textarea>
+                    <!-- <div name="regdate" style="
+        display: inline-block;
+        height: 42px;
+        font-size: 16px;
+        color: #202020;
+        line-height: 40px;
+        float: right;"><span th:text="${post.author}"></span><span> / </span><span th:text="${post.regdate}"></span></div>-->
+                </div>
+
+                <div th:style="'
+                    max-width: 860px;
+                    margin: 40px auto;
+                    padding-left: 0 40px;
+                    background-image: url('+${post.thumbnail}+');
+                    border-radius: 20px;
+                    height: 400px;
+                    background-size: cover;
+                    background-position: center;'">
+                </div>
+
+                <div style="
+                    max-width: 860px;
+                    margin: 26px auto 17px;
+                    padding-bottom: 26px;
+                    border-bottom: 1px solid rgba(0,0,0,.05);">
+                    <textarea name="content" required onkeydown="resize(this)" onkeyup="resize(this)"  style="
+        display: block;
+        width: 100%;
+        border: none;
+        font-size: 16px;
+        resize: none;
+        outline: 0 none;
+        line-height: 40px;
+        overflow: hidden;
+        word-break: break-all;" th:text="${post.content}"></textarea>
+                </div>
+                <div style="
+                max-width: 860px;
+                margin: 0 auto;">
+                    <textarea required style="
+                border:none;
+                resize: none;
+                outline: none;
+                overflow: hidden;
+                width: 45%;
+                height: 100%;
+                display: inline-block;" th:text="${post.tag}"></textarea>
+                    <input type="submit" style="border:none;
+                  display: inline-block;
+                  float: right;
+                  background-color: white;
+                  font-size: 16px;
+                  color: #007bff;" value="완료">
+                </div>
+            </form>
         </div>
     </div>
     <script>

@@ -36,4 +36,9 @@ public class MemoryPostRepository implements PostRepository {
     public List<Post> findAll() {
         return new ArrayList<>(store.values());
     }
+    
+    public Long updatePost(Post post) {
+        store.put(post.getId(), post);
+        return post.getId();
+    }
 }

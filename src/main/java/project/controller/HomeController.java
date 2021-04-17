@@ -97,10 +97,13 @@ public class HomeController {
     }
     
     @PostMapping("/post/update/{postId}")
-    public String postUpdatePost(@PathVariable(name = "postId") Long postId) {
-        Optional<Post> post = postService.getById(postId);
-        if(post.isPresent()) {
-            postService.update(post.get());
+    public String postUpdatePost(@PathVariable(name = "postId") Long postId, PostDto postDto) {
+        Optional<Post> optPost = postService.getById(postId);
+        if(optPost.isPresent()) {
+            Post post = optPost.get();
+            post.setTitle(postDto.getTitle());
+            post.setContent(postDto.getContent());
+            postService.update(post);
             return "redirect:/post/{postId}";
         }
         return "failed";
