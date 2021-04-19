@@ -37,8 +37,14 @@ public class MemoryPostRepository implements PostRepository {
         return new ArrayList<>(store.values());
     }
     
-    public Long updatePost(Post post) {
+    public Long update(Post post) {
         store.put(post.getId(), post);
         return post.getId();
+    }
+    
+    public Long delete(Long id) {
+        Post status = store.remove(id);
+        if(status != null) return id;
+        return -1L;
     }
 }

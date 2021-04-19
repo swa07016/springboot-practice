@@ -67,6 +67,16 @@
     margin: 0 auto 80px;
     display: block;
     "><span># </span><span th:text="${post.tag}"></span> 
+                <form th:action="@{'/post/delete/' + ${post.id}}" method="post" style="
+                                                                         display: inline-block;
+                                                                         float: right;">
+                    <input type="submit" value="삭제" style="
+                                                           border: none;
+                                                           outline: none;
+                                                           background-color: white;
+                                                           color: red;
+                                                           margin-left: 12px;">
+                </form>
                 <a th:href="@{'/post/update/' + ${post.id}}"><span style="float:right;">수정</span></a>
             </div>
         </div>

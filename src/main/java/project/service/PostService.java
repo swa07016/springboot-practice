@@ -33,9 +33,15 @@ public class PostService {
         return postList;
     }
     
-    public Long update(Post post) {
+    public Long updatePost(Post post) {
         // implements
-        Long id = postRepository.updatePost(post);
+        Long id = postRepository.update(post);
+        return id;
+    }
+    
+    public Long deletePost(Long id) {
+        Long status = postRepository.delete(id);
+        if(status == -1L) return -1L;
         return id;
     }
 }

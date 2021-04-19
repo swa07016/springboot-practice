@@ -103,10 +103,17 @@ public class HomeController {
             Post post = optPost.get();
             post.setTitle(postDto.getTitle());
             post.setContent(postDto.getContent());
-            postService.update(post);
+            postService.updatePost(post);
             return "redirect:/post/{postId}";
         }
         return "failed";
+    }
+    
+    @PostMapping("/post/delete/{postId}")
+    public String postDeletePost(@PathVariable(name = "postId") Long postId) {
+        Long status = postService.deletePost(postId);
+        if(status == -1L) return "errorpage";
+        return "redirect:/";
     }
     
 }

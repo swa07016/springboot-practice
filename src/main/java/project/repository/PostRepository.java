@@ -11,5 +11,6 @@ public interface PostRepository {
     Post save(Post post);
     Optional<Post> findById(Long id);    
     List<Post> findAll();
-    Long updatePost(Post post);
+    Long update(Post post);
+    Long delete(Long id);
 }
