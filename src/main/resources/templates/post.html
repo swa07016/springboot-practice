@@ -67,7 +67,6 @@
     margin: 0 auto 80px;
     display: block;
     "><span># </span><span th:text="${post.tag}"></span> 
-                <!-- 위치 조정 필요 -->
                 <form th:action="@{'/post/delete/' + ${post.id}}" method="post" style="
                                                                          display: inline-block;
                                                                          float: right;">
@@ -76,7 +75,9 @@
                                                            outline: none;
                                                            background-color: white;
                                                            color: red;
-                                                           margin-left: 12px;">
+                                                           margin-left: 12px;
+                                                           height: 24px;
+                                                           padding: 0;">
                 </form>
                 <a th:href="@{'/post/update/' + ${post.id}}"><span style="float:right;">수정</span></a>
             </div>

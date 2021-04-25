@@ -1,7 +1,10 @@
 /workspace/spring-practice/src/main/java/project/repository/MemoryPostRepository.java
 /workspace/spring-practice/src/main/java/project/domain/PostDto.java
 /workspace/spring-practice/src/main/java/project/service/PostService.java
+/workspace/spring-practice/src/main/java/project/domain/EventDoc.java
 /workspace/spring-practice/src/main/java/project/domain/Post.java
 /workspace/spring-practice/src/main/java/project/repository/PostRepository.java
+/workspace/spring-practice/src/main/java/project/repository/MongoPostRepository.java
 /workspace/spring-practice/src/main/java/project/controller/HomeController.java
+/workspace/spring-practice/src/main/java/project/service/EventService.java
 /workspace/spring-practice/src/main/java/project/Application.java
