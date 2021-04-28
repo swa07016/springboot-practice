@@ -31,7 +31,7 @@ public class MemoryPostRepository implements PostRepository {
     }
     
     public Optional<Post> findById(Long id) {
-        return Optional.of(store.get(id));
+        return Optional.ofNullable(store.get(id));
     }
     
     public List<Post> findAll() {

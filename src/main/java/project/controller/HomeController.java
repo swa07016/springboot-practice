@@ -61,7 +61,7 @@ public class HomeController {
         }
         
         // 에러페이지 html 만들기
-        return "존재하지 않는 게시물입니다..";
+        return "notfound.html";
     }
     
     @PostMapping("/post/preview")
