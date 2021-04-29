@@ -1,7 +1,9 @@
-project/domain/Post.class
 project/Application.class
 project/controller/HomeController.class
 project/service/PostService.class
-project/domain/PostDto.class
+project/domain/post/Post.class
+project/domain/post/Post$Builder.class
 project/repository/PostRepository.class
+project/domain/post/Post$1.class
 project/repository/MemoryPostRepository.class
+project/domain/post/PostDto.class

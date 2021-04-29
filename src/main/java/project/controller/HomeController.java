@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import project.domain.Post;
-import project.domain.PostDto;
+import project.domain.post.Post;
+import project.domain.post.PostDto;
 import project.service.PostService;
 
 @Controller
@@ -66,17 +66,16 @@ public class HomeController {
     
     @PostMapping("/post/preview")
     public String postPreview(PostDto postDto, Model model) {
-        String title = postDto.getTitle();
-        String content = postDto.getContent();
-        String tag = postDto.getTag();
-        String thumbnail = postDto.getThumbnail();
-        
-        Post post = new Post(title, content, tag, thumbnail); 
-        
-        SimpleDateFormat regdate = new SimpleDateFormat("yyyy.MM.dd");
-        post.setRegdate(regdate.format(new Date()));
-        post.setAuthor("seonghoon");
-        post.setId(1L);
+        SimpleDateFormat _regdate = new SimpleDateFormat("yyyy.MM.dd");
+        Post post = new Post
+            .Builder(1L)
+            .title(postDto.getTitle())
+            .content(postDto.getContent())
+            .tag(postDto.getTag())
+            .thumbnail(postDto.getThumbnail())
+            .regdate(_regdate.format(new Date()))
+            .author("seonghoon")
+            .build();
         
         model.addAttribute("post", post);
         return "preview.html";

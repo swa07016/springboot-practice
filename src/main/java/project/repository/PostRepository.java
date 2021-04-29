@@ -3,7 +3,7 @@ package project.repository;
 import java.util.List;
 import java.util.Optional;
 
-import project.domain.Post;
+import project.domain.post.Post;
 
 public interface PostRepository {
     

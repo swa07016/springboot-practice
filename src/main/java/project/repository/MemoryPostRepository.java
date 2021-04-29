@@ -9,7 +9,7 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Repository;
 
-import project.domain.Post;
+import project.domain.post.Post;
 
 @Repository
 public class MemoryPostRepository implements PostRepository {

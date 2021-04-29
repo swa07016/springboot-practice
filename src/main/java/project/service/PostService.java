@@ -5,7 +5,7 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
-import project.domain.Post;
+import project.domain.post.Post;
 import project.repository.PostRepository;
 
 @Service
