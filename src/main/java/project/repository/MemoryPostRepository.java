@@ -19,7 +19,7 @@ public class MemoryPostRepository implements PostRepository {
     
     public void generateDummyPosts() {
         Post post1 = new Post(1L, "title", "content", "tag", "https://html.com/wp-content/uploads/html-hpg-featured-new.png", "2021.04.01", "seonghoon");
-    Post post2 = new Post(1L, "title", "content", "tag", "https://cdn.lynda.com/course/170427/170427-637363828865101045-16x9.jpg", "2021.04.02", "seongbin");
+        Post post2 = new Post(1L, "title", "content", "tag", "https://cdn.lynda.com/course/170427/170427-637363828865101045-16x9.jpg", "2021.04.02", "seongbin");
         this.save(post1);
         this.save(post2);
     }

@@ -144,6 +144,6 @@ public class Post {
         tag = builder.tag;
         thumbnail = builder.thumbnail;   
         regdate = builder.regdate;
-        author = author;
+        author = builder.author;
     }
 }
