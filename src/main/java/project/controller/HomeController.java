@@ -35,18 +35,18 @@ public class HomeController {
     }
     
     @PostMapping("/post/register")
-    public String postRegister(PostDto postDto) {
-        String title = postDto.getTitle();
-        String content = postDto.getContent();
-        String tag = postDto.getTag();
-        String thumbnail = postDto.getThumbnail();
+    public String postRegister(PostDto postDto) {        
         
-        Post post = new Post(title, content, tag, thumbnail); 
-        
-        SimpleDateFormat regdate = new SimpleDateFormat("yyyy.MM.dd");
-        post.setRegdate(regdate.format(new Date())); 
-        post.setAuthor("seonghoon");
-        post.setId(1L);
+        SimpleDateFormat _regdate = new SimpleDateFormat("yyyy.MM.dd");
+        Post post = new Post
+            .Builder(1L)
+            .title(postDto.getTitle())
+            .content(postDto.getContent())
+            .tag(postDto.getTag())
+            .thumbnail(postDto.getThumbnail())
+            .regdate(_regdate.format(new Date()))
+            .author("seonghoon")
+            .build();
         
         postService.register(post);
         return "redirect:/";
@@ -59,8 +59,7 @@ public class HomeController {
             model.addAttribute("post", post.get());
             return "post.html";
         }
-        
-        // 에러페이지 html 만들기
+    
         return "notfound.html";
     }
     
