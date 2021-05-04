@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 
 import project.domain.post.Post;
 
-@Repository
+// @Repository
 public class MemoryPostRepository implements PostRepository {
     
     private static Map<Long, Post> store = new HashMap<>();
