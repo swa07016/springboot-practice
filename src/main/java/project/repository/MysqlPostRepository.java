@@ -2,14 +2,14 @@
 package project.repository;
 
 
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 import project.domain.post.Post;
 import org.springframework.stereotype.Repository;
 
 // This will be AUTO IMPLEMENTED by Spring into a Bean called userRepository
 // CRUD refers Create, Read, Update, Delete
 
-// @Repository
-public interface MysqlPostRepository extends CrudRepository<Post, Long> {
+@Repository
+public interface MysqlPostRepository extends JpaRepository<Post, Long> {
     
 } 

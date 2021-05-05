@@ -5,20 +5,29 @@ import java.util.Optional;
 import java.util.ArrayList;
 import java.lang.Iterable;
 
+import org.springframework.transaction.annotation.Transactional;
+
 import org.springframework.stereotype.Service;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import project.domain.post.Post;
 import project.repository.MysqlPostRepository;
 
 @Service
+@Transactional
 public class PostService {
     
+    @Autowired
     private MysqlPostRepository postRepository;
 
     // public PostService(PostRepository postRepository) {
     //     this.postRepository = postRepository;
     //     // this.postRepository.generateDummyPosts();
     // }
+    
+    public PostService(MysqlPostRepository _postRepository) {
+        this.postRepository = _postRepository;
+    }
     
     public Long register(Post post) {
         postRepository.save(post);
@@ -31,11 +40,8 @@ public class PostService {
     
     public List<Post> getAllPost() {
         // postRepository가 Iterable<Post>를 리턴?
-        List<Post> postList = new ArrayList<>();
-        Iterable<Post> iterable = postRepository.findAll();
-        for(Post post : iterable) {
-            postList.add(post);
-        }
+        List<Post> postList = postRepository.findAll();
+        // postRepository.findAll().forEach(postList::add);    
         return postList;
     }
     

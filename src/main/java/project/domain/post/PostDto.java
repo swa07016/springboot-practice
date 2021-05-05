@@ -6,6 +6,8 @@ public class PostDto {
     private String tag;
     private String thumbnail;    
     
+    public PostDto() {}
+    
     public PostDto(String _title, String _content, String _tag, String _thumbnail) {
         this.title = _title;
         this.content = _content;

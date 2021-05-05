@@ -18,6 +18,8 @@ public class Post {
     private String regdate;
     private String author;
     
+    public Post(){}
+    
     public Post(String _title, String _content, String _tag, String _thumbnail) {
         this.title = _title;
         this.content = _content;
