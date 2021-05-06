@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.ArrayList;
 import java.lang.Iterable;
+import java.util.Collections;
 
 import org.springframework.transaction.annotation.Transactional;
 
@@ -41,7 +42,8 @@ public class PostService {
     public List<Post> getAllPost() {
         // postRepository가 Iterable<Post>를 리턴?
         List<Post> postList = postRepository.findAll();
-        // postRepository.findAll().forEach(postList::add);    
+        // postRepository.findAll().forEach(postList::add); 
+        Collections.reverse(postList);
         return postList;
     }
     
